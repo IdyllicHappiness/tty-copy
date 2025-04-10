@@ -146,11 +146,11 @@ jobs:
       - name: Generate checksums.txt
         run:
           shasum -a 256 * > checksums.txt
-        working-directory: binaries
+        working-directory: dist
 
       - name: Upload binaries to Releases
         uses: softprops/action-gh-release@v1
         with:
-          files: binaries/*
+          files: dist/*
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
